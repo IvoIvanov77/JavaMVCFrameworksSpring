@@ -1,0 +1,20 @@
+<table class="table">
+    <tr>
+        <th scope="col">Car make</th>
+        <th scope="col">Car model</th>
+        <th scope="col">Traveled distance</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Price</th>
+        <th scope="col">Price with discount</th>
+        <th scope="col">Discount</th>
+    </tr>
+    <tr th:each="sale :${sales}" th:object="${sale}">
+        <td th:text="*{carMake}"></td>
+        <td th:text="*{carModel}"></td>
+        <td th:text="*{carTraveledDistance}"></td>
+        <td th:text="*{customerName}"></td>
+        <td th:text="*{price}"></td>
+        <td th:text="*{priceWithDiscount}"></td>
+        <td th:text="*{discountInPercent}"></td>
+    </tr>
+</table>

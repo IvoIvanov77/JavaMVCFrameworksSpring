@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>index</title>
+    <th:block th:replace="fragments/head"/>
+</head>
+<body>
+<form th:method="post" th:action="@{/students/create}">
+    <input type="text" name="name"/>
+    <input type="number" name="willToLive"/>
+    <button type="submit">Submit</button>
+</form>
+
+<form th:method="post" th:action="@{/students/create}" th:object="${student}">
+    <input type="text" th:field="*{name}"/>
+    <input type="number" th:field="*{willToLive}"/>
+    <button type="submit">Submit</button>
+</form>
+<th:block>
+    <p th:text="${pesho}"/>
+</th:block>
+<div th:object="${student}">
+    <p th:text="*{name}"/>
+    <p th:text="*{willToLive}"/>
+    <div th:if="*{willToLive > 5}">
+        <p>The statement is true</p>
+    </div>
+</div>
+
+<div th:each="number :${collection}">
+    <p th:text="${number}"></p>
+</div>
+
+<div th:each="element : ${#numbers.sequence(2, 10, 3)}">
+    <p th:text="${element}"></p>
+</div>
+</body>
+</html>

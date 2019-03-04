@@ -1,0 +1,19 @@
+
+<table style="border: 1px solid black">
+    <th:block th:object="${car}">
+        <h3>Car:</h3>
+        <p th:text="*{make}"></p>
+        <p th:text="*{model}"></p>
+        <p th:text="*{travelledDistance}"></p>
+    </th:block>
+    <h3>Parts:</h3>
+    <tr>
+        <th>Part name</th>
+        <th>Part price</th>
+
+    </tr>
+    <tr th:each="part :${parts}" th:object="${part}">
+        <td th:text="*{name}"></td>
+        <td th:text="*{price}"></td>
+    </tr>
+</table>
