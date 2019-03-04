@@ -1,0 +1,10 @@
+
+    <th:block th:object="${sale}">
+        <h2>Car make: <span th:text="*{carMake}"></span></h2>
+        <h2>Car model: <span th:text="*{carModel}"></span></h2>
+        <h2>Traveled distance: <span th:text="*{carTraveledDistance}"></span></h2>
+        <h2>Customer: <span th:text="*{customerName}"></span></h2>
+        <h2>Price <span th:text="*{price}"></span></h2>
+        <h2>Price with discount: <span th:text="*{priceWithDiscount}"></span></h2>
+        <h2>Discount: <span th:text="|*{discountInPercent}  %|"></span></h2>
+    </th:block>

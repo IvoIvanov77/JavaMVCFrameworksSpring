@@ -1,0 +1,76 @@
+<div class="container body-content span=8 offset=2">
+    <div class="well">
+        <form class="form-horizontal" th:action="@{/sales/create}"
+              method="post" th:object="${model}">
+            <fieldset>
+                <legend class="text-center">Review Sale</legend>
+
+                <!--<th:block th:unless="${customer_notification} == null">-->
+                    <!--<div class="alert alert-success text-center">-->
+                        <!--<strong th:text="${customer_notification}"></strong>-->
+                    <!--</div>-->
+                <!--</th:block>-->
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="customer">FullName</label>
+                    <div class="col-sm-4 ">
+                        <select class="form-control" id="customer"
+                                th:field="*{customerId}" >
+                            <option
+                                    th:value="*{customerId}" th:text="*{customerName}">
+                            </option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="car">Car</label>
+                    <div class="col-sm-4 ">
+                        <!--<input class="form-control" type="text" id="car"-->
+                               <!--readonly-->
+                               <!--th:field="*{carId}"/>-->
+                        <select class="form-control" id="car"
+                                th:field="*{carId}" >
+                            <option
+                                    th:value="*{carId}" th:text="*{carMakeAndModelName}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="discount">Discount</label>
+                    <div class="col-sm-4 ">
+                        <input class="form-control" type="text" id="discount"
+                               readonly
+                               th:field="*{discount}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="carPrice">Car Price</label>
+                    <div class="col-sm-4 ">
+                        <input class="form-control" type="text" id="carPrice"
+                               readonly th:value="*{carPrice}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="finalCarPrice">Car Price</label>
+                    <div class="col-sm-4 ">
+                        <input class="form-control" type="text" id="finalCarPrice"
+                               readonly th:value="*{finalCarPrice}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <a class="btn btn-default" th:href="@{/customers/all/ascending}">Cancel</a>
+                        <input value="Finalize" type="submit" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

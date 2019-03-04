@@ -1,0 +1,47 @@
+<div class="container body-content span=8 offset=2">
+    <div class="well">
+        <form class="form-horizontal" th:action="@{/sales/review}"
+              method="post" th:object="${model}">
+            <fieldset>
+                <legend class="text-center">Add Car Part</legend>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="customer">Customer</label>
+                    <div class="col-sm-4 ">
+                        <select class="form-control" id="customer"  th:field="*{customerId}">
+                            <option th:each="customer : ${customersList}"
+                                    th:value="${customer.id}"
+                                    th:text="${customer.name}"></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="car">Car</label>
+                    <div class="col-sm-4 ">
+                        <select class="form-control" id="car"  th:field="*{carId}">
+                            <option th:each="car : ${carsList}"
+                                    th:value="${car.id}"
+                                    th:text="${car.makeAndModel}"></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="discount">Discount, %</label>
+                    <div class="col-sm-4 ">
+                        <input class="form-control" id="discount" type="number"
+                               required="required"  th:field="*{discount}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <a class="btn btn-default" th:href="@{/customers/all/ascending}">Cancel</a>
+                        <input value="Create" type="submit" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

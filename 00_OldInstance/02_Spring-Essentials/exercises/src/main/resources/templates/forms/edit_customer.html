@@ -1,0 +1,39 @@
+<div class="container body-content span=8 offset=2">
+    <div th:object="${customer}" class="well">
+        <form class="form-horizontal" th:action="@{/customers/edit/{id}(id=${id})}"
+              method="post" >
+            <fieldset>
+                <legend class="text-center">Edit Customer</legend>
+
+                <th:block th:unless="${customer_notification} == null">
+                    <div class="alert alert-success text-center">
+                        <strong th:text="${customer_notification}"></strong>
+                    </div>
+                </th:block>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="fullName">FullName</label>
+                    <div class="col-sm-4 ">
+                        <input class="form-control" type="text" id="fullName" name="name" required="required"
+                               th:field="*{name}" th:value="*{name}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="date" >Date</label>
+                    <div class="col-sm-4 ">
+                        <input class="form-control" id="date" name="date" type="date" required="required"
+                               th:field="*{birthDate}" th:value="*{birthDate.toString()}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <a class="btn btn-default" th:href="@{/customers/all/ascending}">Cancel</a>
+                        <input value="Edit" type="submit" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
