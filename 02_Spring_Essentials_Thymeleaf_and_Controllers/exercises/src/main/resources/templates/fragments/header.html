@@ -1,0 +1,8 @@
+<header>
+    <th:block th:if="${session.currentUser}">
+        <nav th:replace="fragments/navbar-user"></nav>
+    </th:block>
+    <th:block th:unless="${session.currentUser}">
+        <nav th:replace="fragments/navbar-guest"></nav>
+    </th:block>
+</header>
