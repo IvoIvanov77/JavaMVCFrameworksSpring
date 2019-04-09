@@ -1,6 +1,7 @@
 package org.softuni.cardealer.web.controllers;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.softuni.cardealer.domain.entities.Supplier;
@@ -28,6 +29,11 @@ public class SuppliersControllerTest {
 
     @Autowired
     private SupplierRepository supplierRepository;
+
+    @Before
+    public void clearDb(){
+        this.supplierRepository.deleteAll();
+    }
 
     @Test
     @WithMockUser
